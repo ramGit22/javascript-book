@@ -7,20 +7,20 @@
 // const userName = getUserName(email)
 // console.log(userName)
 
-// Solution using 'For'loop
-// function getUserName(email) {
-//   let userName = ''
-//   for (let i = 0; i < email.length; i++) {
-//     if (email[i] === '@') {
-//       break
-//     }
-//     userName += email[i]
-//   }
-//   return userName
-// }
-// const email = 'john.doe@example.com'
-// const userName = getUserName(email)
-// console.log(userName)
+// // Solution using 'For'loop
+function getUserName(email) {
+  let userName = ''
+  for (let i = 0; i < email.length; i++) {
+    if (email[i] === '@') {
+      break
+    }
+    userName += email[i]
+  }
+  return userName
+}
+const email = 'john.doe@example.com'
+const userName = getUserName(email)
+console.log(userName)
 
 // Solution using 'Array' and 'For' loop
 // function getUserName(email) {
