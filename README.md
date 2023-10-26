@@ -29,9 +29,9 @@ If you've found any issues, have suggestions, or general feedback, please open a
 
 ## :bookmark_tabs: License
 
+This project is licensed under the MIT License. 
+
 ## Note
 The project is a work in progress and I am dedicating my free time to completing it.
-
-This project is licensed under the MIT License. 
 
 Happy Coding! :computer:
