@@ -1,52 +1,47 @@
-// const template = 'Hello, {name}!'
-// const text = 'John'
-
-// function replacePlaceholder(template, text) {
-//   return template.replace('name', text)
-// }
-
-// const greeting = replacePlaceholder(template, text)
-// console.log(greeting)
+// // Sample data: A template string and a name
 // const template = 'Hello, {name}!'
 // const name = 'John'
 
+// // Function to replace the placeholder with the given name
 // function replacePlaceholder(template, name) {
-//   let newString = ''
-
-//   for (let i = 0; i < template.length; i++) {
-//     // Check if the current character is the start of the placeholder
-//     if (template[i] === '{' && template[i + 1] === 'n') {
-//       newString += name // Add the actual name to the new string
-//       i += 5 // Skip ahead to avoid adding the placeholder
-//     } else {
-//       newString += template[i] // Add the current character to the new string
-//     }
-//   }
-//   return newString
+//   // Using replace() to substitute {name} with the actual name
+//   return template.replace('{name}', name)
 // }
 
+// // Replacing the placeholder and creating the greeting
 // const greeting = replacePlaceholder(template, name)
-// console.log(greeting)
+// console.log(greeting) // Expected Output: Hello, John!
 
-const input = 'Hello &world&! Have a &great& day!'
+// Sample data: A template string and a name
+const template = 'Hello, {name}!'
+const name = 'John'
 
-function parseCustomMarkup(input) {
-  let output = ''
-  let isMarkup = false // Flag to track whether we're inside markup
+// Function to manually replace the placeholder using a loop
+function replacePlaceholder(template, name) {
+  let result = '' // Initialize an empty string to build the result
+  let isPlaceholder = false // Flag to track if we are within the placeholder
 
-  for (let i = 0; i < input.length; i++) {
-    const char = input[i]
-
-    if (char === '&') {
-      isMarkup = !isMarkup // Toggle the markup state
-    } else if (isMarkup) {
-      output += char.toUpperCase()
-    } else {
-      output += char
+  // Loop through each character in the template string
+  for (let i = 0; i < template.length; i++) {
+    if (template[i] === '{') {
+      // When we find an opening brace, set the flag to true
+      isPlaceholder = true
+      // Append the name to the result, replacing the placeholder
+      result += name
+    } else if (template[i] === '}') {
+      // When we find a closing brace, set the flag to false
+      isPlaceholder = false
+      continue // Skip adding the closing brace to the result
+    } else if (!isPlaceholder) {
+      // If not currently in a placeholder, append the character to the result
+      result += template[i]
     }
+    // If we are inside a placeholder, we skip adding characters until we find the closing brace
   }
-  return output
+
+  return result // Return the final string with the placeholder replaced
 }
 
-const result = parseCustomMarkup(input)
-console.log(result) // Output: Hello WORLD! Have a GREAT day!
+// Creating the greeting by manually replacing the placeholder
+const greeting = replacePlaceholder(template, name)
+console.log(greeting) // Expected Output: Hello, John!
