@@ -5,10 +5,8 @@ const dob = '1995-05-15'
 function calculateAge(dob) {
   // Create a new Date object from the dob string
   const birthDate = new Date(dob)
-  console.log('birthDate', birthDate)
   // Get the current date and time
   const today = new Date()
-  console.log('today', today)
 
   // Calculate the difference in years between today and the birthDate
   let age = today.getFullYear() - birthDate.getFullYear()
