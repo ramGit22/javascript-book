@@ -1,0 +1,14 @@
+// Sample data: A number
+const num = 123.4567
+
+// Function to format a number to two decimal places
+function formatNumber(num) {
+  // Use toFixed() to format the number to two decimal places
+  return num.toFixed(2)
+}
+
+// Format the number and store the result in 'formattedNumber'
+const formattedNumber = formatNumber(num)
+
+// Output the formatted number to the console
+console.log(formattedNumber) // Expected Output: 123.46
