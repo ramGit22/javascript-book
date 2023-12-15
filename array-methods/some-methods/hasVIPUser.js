@@ -18,7 +18,7 @@ function hasVIPUser(users) {
 const hasVIP = hasVIPUser(users)
 
 // Print the result to the console
-console.log(hasVIP) // True
+console.log(hasVIP) // true
 
 // // Define an array of users with name and isVIP properties
 // const users = [
@@ -45,4 +45,4 @@ console.log(hasVIP) // True
 // const hasVIP = hasVIPUser(users)
 
 // // Print the result to the console
-// console.log(hasVIP) // True
+// console.log(hasVIP) // true
