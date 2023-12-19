@@ -12,11 +12,17 @@
 //   return products.map((product) => {
 //     // Find the minimum price for the product
 //     const minPrice = Math.min(...product.prices)
+//     // Find the maximum price for the product
+//     const maxPrice = Math.max(...product.prices)
 
-//     // Calculate normalized prices relative to the minimum price
-//     const normalizedPrices = product.prices.map((price) => price - minPrice)
+//     // Calculate normalized prices using the provided formula
+//     // Normalized Price = ((Actual Price - Minimum Price) / (Maximum Price - Minimum Price)) * 100
+//     const normalizedPrices = product.prices.map((price) => {
+//       return ((price - minPrice) / (maxPrice - minPrice)) * 100
+//     })
 
 //     // Returning the modified product object with the new normalizedPrices property
+//     // which now contains the calculated normalized prices for each seller
 //     return { ...product, normalizedPrices }
 //   })
 // }
@@ -41,16 +47,20 @@ function normalizeProductPrices(products) {
   for (let i = 0; i < products.length; i++) {
     // Access the current product
     const product = products[i]
-
-    // Find the minimum price for the product
-    let minPrice = Math.min(...product.prices)
+    // Find the minimum and maximum prices for the product
+    const minPrice = Math.min(...product.prices)
+    const maxPrice = Math.max(...product.prices)
 
     // Initialize an array to store the normalized prices
     let normalizedPrices = []
 
     // Loop through the product's prices to calculate normalized prices
-    for (let j = 0; j < product.prices.length; j++) {
-      normalizedPrices.push(product.prices[j] - minPrice)
+    for (let price of product.prices) {
+      // Apply the normalization formula for each price
+      // Normalized Price = ((Actual Price - Minimum Price) / (Maximum Price - Minimum Price)) * 100
+      const normalizedPrice = ((price - minPrice) / (maxPrice - minPrice)) * 100
+      // Add the normalized price to the normalizedPrices array
+      normalizedPrices.push(normalizedPrice)
     }
 
     // Add the normalizedPrices property to the product object
